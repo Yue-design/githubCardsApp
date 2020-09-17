@@ -6,3 +6,6 @@
 ## Reverse Input
 ### CodeSandbox Version
 <p>https://codesandbox.io/s/exciting-sara-cieyy?file=/src/App.js</p>
+## Counter
+### JavaScript Version
+<p>https://codesandbox.io/s/counter-js-utgib?file=/index.html</p>
