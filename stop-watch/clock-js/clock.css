@@ -1,0 +1,109 @@
+/**********************************************
+*** GENERAL
+**********************************************/
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.clearfix::after{
+    content: "";
+    display: table;
+    clear: both;
+}
+
+body {
+    background-image: linear-gradient(rgba(62, 20, 20, 0.4), rgba(62, 20, 20, 0.4)), url(clock.png);
+    background-size: cover;
+    background-position: center;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 48px;
+    font-weight: 1000;
+    position: relative;
+    height: 100vh;
+    color: whitesmoke;
+}
+
+.wrapper {
+    width: 1000px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-60%, -50%);
+    background-color: black;
+    box-shallow: 0px 10px 50px rgba(0, 0, 0, 0.3);
+    overflow: hidden;
+}
+
+.clock-0-panel, .clock-1-panel {
+    width: 100%;
+    float: left;
+    height: 600px;
+    padding: 100px;
+}
+
+/**********************************************
+*** CLOCK
+**********************************************/
+
+.clock-name {
+    font-size: 64px;
+    text-align: center;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    font-weight: 100;
+    margin-top: 20px;
+    margin-bottom: 10px;
+    position: relative;
+}
+
+.clock-time {
+    text-align: center;
+    font-size: 120px;
+    font-wight: 100;
+    color: whitesmoke;
+    margin-bottom: 130px;
+}
+
+button{
+    position: absolute;
+    width: 200px;
+    top: 80%;
+    transform: translateX(-50%);
+    color: whitesmoke;
+    background: none;
+    border: none;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 36px;
+    text-transform: uppercase;
+    cursor: pointer;
+    font-weight: 300;
+    transition: background-color 0.3s, color 0.3s;
+}
+
+button:hover { font-weight: 800; }
+button:hover i { margin-right: 20px; }
+
+button:focus { outline:none; }
+
+i {
+    color: whitesmoke;
+    display: inline-block;
+    font-size: 32px;
+    line-height: 1;
+    vertical-align: text-top;
+}
+
+.btn-full {
+    left: 15%;
+}
+
+.btn-new {
+    left: 50%;
+}
+
+.btn-half {
+    left: 85%;
+}
