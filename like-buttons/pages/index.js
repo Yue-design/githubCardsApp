@@ -3,6 +3,7 @@ import styles from '../styles/Home.module.css'
 import LikeButton from '../pages/_app';
 
 export default function Home(props) {
+  const count = 1;
   return (
     <div className={styles.container}>
       <Head>
@@ -26,7 +27,7 @@ export default function Home(props) {
             <p>Find in-depth information about Next.js features and API.</p>
           </a>
           {/* <LikeButton></LikeButton> */}
-          <button>Like</button>
+          <button onClick={e=>console.log(`You liked article number ${count}.`)}>Like</button>
 
           <a href="https://nextjs.org/learn" className={styles.card}>
             <h3>Learn &rarr;</h3>

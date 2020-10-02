@@ -11,10 +11,11 @@ function LikeButton({ Component, pageProps }) {
   // if (props.like) {
   //   return 'You liked comment number ' + props.commentID;
   // };
-  // return 
-  //   <React.Fragment>
-  //     <button>Like</button>
-  //   </React.Fragment>
+  // return(
+  //   <div>
+  //     <button>LIKE</button>
+  //   </div>
+  // )
 }
 
 export default LikeButton;
