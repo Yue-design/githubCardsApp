@@ -2,27 +2,17 @@ import React, { useState } from "react";
 import "./App.css";
 
 function App() {
-  const [state, setState] = useState({
-    items: [],
-    text: ""
-  });
+  const [inputVal, setInputVal] = useState("");
+  const [listVals, setListVal] = useState([]);
 
-  const handleChange = (event) => {
-    setState({text: event.target.value});
+  const handleChange = e => {
+    setInputVal(e.target.value);
   };
 
-  const handleSubmit = (event) => {
-    event.preventDefault();
-    if (state.text.length === 0) {
-      return;
-    };
-    const newItem = {
-      text: state.text,
-    };
-    setState(state => ({
-      items: state.items.concat(newItem),
-      text: ''
-    }));
+  const handleSubmit = e => {
+    e.preventDefault();
+    setListVal([...listVals, inputVal]);
+    setInputVal("");
   };
 
   return (
@@ -30,13 +20,20 @@ function App() {
       <h3>To Do List</h3>
       <form onSubmit={handleSubmit}>
         <label>What needs to be done?</label>
-        <input onChange={handleChange} id="todo" value={state.text} />
-        <button>Add #{state.items.length + 1}</button>
+        <input
+          onChange={handleChange}
+          id="todo"
+          value={inputVal}
+          placeholder="Enter a To Do Task"
+        />
+        <button>Add # {listVals.length + 1}</button>
       </form>
       <p>The following are what you have done: </p>
-      {/* {props.state.items.map(item => (
-        <li key={item.id}>{props.item.text}</li>
-      ))} */}
+      <ul>
+        {listVals.map((listVal, index) => (
+          <li key={index}>{listVal}</li>
+        ))}
+      </ul>
     </div>
   );
 }
