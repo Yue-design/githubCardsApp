@@ -10,40 +10,39 @@ import {
 
 function App() {
 
-  const [target, setTarget] = useState({
-    val: ''
-  });
+  const [inputVal, setInputVal] = useState('');
 
   const onChangeHandler = (event) => {
-    setTarget({...target, [event.target.name]:event.target.value});
+    setInputVal(event.target.value);
   };
 
-  const onSubmitHandler = () => {};
-
-  const reversed = (str) => {
-    return str.split('').reverse().join('');
-  };
+  const handleReversed = () => {
+    setInputVal(inputVal.split('').reverse().join(''));
+  }
 
   return (
     <Fragment>
       <Typography variant="h3">Reversed Input</Typography>
-      <Grid container direction="row" justify="center" alignItems="center">
+      <Grid container direction="row" justify="left" alignItems="center">
         <TextField
-          label="input"
-          name="val"
-          variant="outlined"
+          value={inputVal}
           onChange={onChangeHandler}
+          placeholder="Enter a String"
           required
         >
           Input
         </TextField>
-        <Button variant="contained" color="primary" onClick={onSubmitHandler}>
-          Submit
+        <Button variant="contained" color="primary" onClick={handleReversed}>
+          Reverse
         </Button>
       </Grid>
-      <Grid container direction="row" justify="center" alignItems="center">
-        <TableCell>Output</TableCell>
-        <TableCell>{reversed(target.val)}</TableCell>
+      <Grid container direction="row" justify="left" alignItems="center">
+        <TableCell>The input is: </TableCell>
+        <TableCell>{inputVal}</TableCell>
+      </Grid>
+      <Grid container direction="row" justify="left" alignItems="center">
+        <TableCell>The reversed input is: </TableCell>
+        <TableCell>{inputVal.split('').reverse().join('')}</TableCell>
       </Grid>
     </Fragment>
   );
