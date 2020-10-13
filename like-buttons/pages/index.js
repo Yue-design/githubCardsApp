@@ -1,11 +1,14 @@
 import Head from "next/head";
 import styles from "../styles/Home.module.css";
-import LikeButton from "../pages/_app";
+// import LikeButton from "../pages/_app";
 import Reacth, { useState } from "react";
 
 export default function Home(props) {
   const count = 1;
   const [hidden, setHidden] = useState(true);
+  // const [hidden, setHidden1] = useState(true);
+  // const [hidden, setHidden2] = useState(true);
+  // const [hidden, setHidden3] = useState(true);
   const text = "hello";
 
   return (
@@ -34,26 +37,36 @@ export default function Home(props) {
             <p>Find in-depth information about Next.js features and API.</p>
           </a>
           {/* <LikeButton></LikeButton> */}
-          <button
-            onClick={e => console.log(`You liked article number ${count}.`)}
-          >
-            Like
-          </button>
+          <span>
+            {hidden ? (
+              <button
+                onClick={() => {
+                  setHidden(false);
+                }}
+              >
+                Like
+              </button>
+            ) : (
+              <a
+                onClick={() => {
+                  setHidden(false);
+                }}
+              >{`You liked article number ${count}.`}</a>
+            )}
+          </span>
+
+          <span>
+            {hidden ? (
+              <button onClick={() => setHidden(false)}>read more</button>
+            ) : (
+              <a onClick={() => setHidden(true)}>read less</a>
+            )}
+          </span>
 
           <a href="https://nextjs.org/learn" className={styles.card}>
             <h3>Learn &rarr;</h3>
             <p>Learn about Next.js in an interactive course with quizzes!</p>
           </a>
-          <button onClick={() => setHidden(false)}>Like</button>
-
-          <span>
-            {text}
-            {hidden ? (
-              <a onClick={() => setHidden(false)}>read more</a>
-            ) : (
-              <a onClick={() => setHidden(true)}>read less</a>
-            )}
-          </span>
 
           <a
             href="https://github.com/vercel/next.js/tree/master/examples"
@@ -62,7 +75,23 @@ export default function Home(props) {
             <h3>Examples &rarr;</h3>
             <p>Discover and deploy boilerplate example Next.js projects.</p>
           </a>
-          <button onClick={() => {console.log("here")}}>Like</button>
+          <span>
+            {hidden ? (
+              <button
+                onClick={() => {
+                  setHidden1(false);
+                }}
+              >
+                Like
+              </button>
+            ) : (
+              <a
+                onClick={() => {
+                  setHidden1(true);
+                }}
+              >{`You liked article number ${count + 1}.`}</a>
+            )}
+          </span>
 
           <a
             href="https://vercel.com/import?filter=next.js&utm_source=create-next-app&utm_medium=default-template&utm_campaign=create-next-app"
@@ -73,7 +102,23 @@ export default function Home(props) {
               Instantly deploy your Next.js site to a public URL with Vercel.
             </p>
           </a>
-          <button>Like</button>
+          <span>
+            {hidden ? (
+              <button
+                onClick={() => {
+                  setHidden2(false);
+                }}
+              >
+                Like
+              </button>
+            ) : (
+              <a
+                onClick={() => {
+                  setHidden2(true);
+                }}
+              >{`You liked article number ${count + 2}.`}</a>
+            )}
+          </span>
         </div>
       </main>
 
@@ -86,6 +131,25 @@ export default function Home(props) {
           Powered by{" "}
           <img src="/vercel.svg" alt="Vercel Logo" className={styles.logo} />
         </a>
+        <span>
+          {hidden ? (
+            <a
+              onClick={() => {
+                setHidden3(false);
+              }}
+            >
+              Read More
+            </a>
+          ) : (
+            <a
+              onClick={() => {
+                setHidden3(true);
+              }}
+            >
+              Read Less
+            </a>
+          )}
+        </span>
       </footer>
     </div>
   );
