@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Survey Form</title>
+    <link rel="stylesheet" href="main.css" />
+  </head>
+  <body>
+    <div>
+      <header>
+        <h1>Survey Form</h1>
+        <p>
+          We appreciate your help to let us know where to improve in the future
+        </p>
+      </header>
+      <form>
+        <div>
+          <label id="name-label" for="name">Name</label>
+          <input
+            type="text"
+            name="name"
+            id="name"
+            placeholder="Enter your name"
+            required
+          />
+        </div>
+        <div>
+          <label id="email-lable" for="email">Email</label>
+          <input
+            type="email"
+            name="name"
+            id="email"
+            placeholder="Enter your Email"
+            required
+          />
+        </div>
+        <div>
+          <label id="number-label" for="number"
+            >Age<span>(optional)</span></label
+          >
+          <input
+            type="number"
+            name="age"
+            id="number"
+            min="18"
+            max="100"
+            placeholder="Age"
+          />
+        </div>
+        <div>
+          <p>Which option best describes your current role?</p>
+          <select id="dropdown" name="role" required>
+            <option disabled selected value>Select your current role</option>
+            <option>Student</option>
+            <option>Full-time Job</option>
+            <option>Full-time Learner</option>
+            <option>Prefer not to say</option>
+            <option>Other</option>
+          </select>
+          <div>
+            <p>Would you recommend our website to a friend?</p>
+            <label>
+              <input value="definitely" type="radio" checked />
+              Definitely
+            </label>
+            <label>
+              <input value="maybe" type="radio" />
+              Maybe
+            </label>
+            <label>
+              <input value="not-sure" type="radio" />
+              Not Sure
+            </label>
+          </div>
+          <div>
+            <p>What is your favourite feature of our website?</p>
+            <select id="most-like" name="most-like" required>
+              <option disabled selected value>Select on option</option>
+              <option value="data-insight">Data Insight</option>
+              <option value="community">Community</option>
+              <option value="locale-forms">Locale Forms</option>
+              <option value="open-source">Open Source</option>
+            </select>
+          </div>
+          <div>
+            <p>
+              What would you like to see improved?
+              <span>(Check all that apply)</span>
+            </p>
+            <label>
+              <input name="prefer" value="one" type="checkbox" />
+              One
+            </label>
+          </div>
+          <div>
+            <p>Any comments or suggestions?</p>
+            <textarea
+              id="comments"
+              class="input-textarea"
+              name="comment"
+              placeholder="Enter your comment here..."
+            ></textarea>
+          </div>
+          <div>
+            <button type="submit" id="submit" class="submit-button">
+              Submit
+            </button>
+          </div>
+        </div>
+      </form>
+    </div>
+  </body>
+</html>
