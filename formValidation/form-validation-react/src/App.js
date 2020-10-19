@@ -1,23 +1,57 @@
 import React, { useState } from "react";
 import "./App.css";
 
-function SignUpForm() {
+function ValidationMessage(props) {
+  if (!props.valid) {
+    return <div>{props.message}</div>;
+  }
+  return null;
+}
+
+function LoginForm() {
   const [form, setValues] = useState({
-    username: "",
     email: "",
-    password: ""
+    emailValid: false,
+    password: "",
+    // formValid: false,
+    errMsg: {}
   });
 
+  // const validateForm = () => {
+  //   setValues({ formValid: form.emailValid });
+  // };
+
   const handleChange = e => {
+    let name = e.target.name;
+    let value = e.target.value;
+    if (name === "email") {
+      if (validateEmail(value)) {
+        form.emailValid = true;
+      }
+    }
     setValues({
       ...form,
-      [e.target.name]: e.target.value
+      [name]: value
     });
   };
 
+  // console.log(
+  //   form.email,
+  //   form.password,
+  //   form.emailValid,
+  //   form.errMsg,
+  //   form.errMsg.email
+  // );
+
   const handleSubmit = e => {
     e.preventDefault();
-    console.log(form.username, form.password);
+    console.log(form.email, form.password);
+    alert("it works!");
+  };
+
+  const validateEmail = email => {
+    const re = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+    return re.test(email);
   };
 
   return (
@@ -25,24 +59,18 @@ function SignUpForm() {
       <h1>Login</h1>
       <form onSubmit={handleSubmit}>
         <label>
-          Username:
-          <input
-            name="username"
-            value={form.username}
-            onChange={handleChange}
-            required
-          />
-        </label>
-        <br />
-        <label>
           Email:
           <input
             name="email"
-            value={form.password}
+            value={form.email}
             onChange={handleChange}
             requried
           />
         </label>
+        <ValidationMessage
+          valid={form.emailValid}
+          message={form.errMsg.email}
+        />
         <br />
         <label>
           Password:
@@ -54,20 +82,12 @@ function SignUpForm() {
           />
         </label>
         <br />
-        <label>
-          Password Confirmation:
-          <input
-            name="password"
-            value={form.password}
-            onChange={handleChange}
-            requried
-          />
-        </label>
-        <br />
-        <button>submit</button>
       </form>
+      <button type="submit" disabled={!form.emailValid} onClick={handleSubmit}>
+        submit
+      </button>
     </div>
   );
 }
 
-export default SignUpForm;
+export default LoginForm;
