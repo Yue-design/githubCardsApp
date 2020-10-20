@@ -6,6 +6,7 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
     <title>Survey Form</title>
     <link rel="stylesheet" href="main.css" />
+    <script src="formValidation.js"></script>
   </head>
   <body>
     <div>
@@ -15,7 +16,7 @@
           We appreciate your help to let us know where to improve in the future
         </p>
       </header>
-      <form>
+      <form action="#" method="post" onsubmit="ValidationEvent()">
         <div>
           <label id="name-label" for="name">Name</label>
           <input
@@ -37,6 +38,18 @@
           />
         </div>
         <div>
+          <label id="phone-label" for="phone">Phone</label>
+          <input
+            type="input"
+            name="phone"
+            id="phone"
+            minlength="10"
+            maxlength="10"
+            pattern="/\(?([0-9]{3})\)?([ .-]?)([0-9]{3})\2([0-9]{4})/"
+            required
+          />
+        </div>
+        <div>
           <label id="number-label" for="number"
             >Age<span>(optional)</span></label
           >
@@ -46,6 +59,8 @@
             id="number"
             min="18"
             max="100"
+            step="1"
+            pattern="\d+"
             placeholder="Age"
           />
         </div>
