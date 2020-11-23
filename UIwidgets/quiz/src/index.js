@@ -14,25 +14,25 @@ const answers = [
   }
 ];
 
-// const getTurnData = answers => {
-//   const allAnswers = answers.reduce((p, c, i) => {
-//     return p.concat(c.abank);
-//   }, []);
-//   const randomAnswers = shuffle(allAnswers).slice(0, 1);
-//   const ans = sample(randomAnswers);
+const getTurnData = answers => {
+  const allAnswers = answers.reduce((p, c, i) => {
+    return p.concat(c.abank);
+  }, []);
+  const randomAnswers = shuffle(allAnswers).slice(0, 1);
+  const ans = sample(randomAnswers);
 
-//   return {
-//     abank: randomAnswers,
-//     operation: answers.find(answer => answer.abank.some(title => title === ans))
-//   };
-// };
+  return {
+    abank: randomAnswers,
+    operation: answers.find(answer => answer.abank.some(title => title === ans))
+  };
+};
 
 const state = {
-  // turnData: getTurnData(answers)
-  turnData: {
-    operation: answers[0],
-    abank: answers[0].abank
-  }
+  turnData: getTurnData(answers)
+  // turnData: {
+  //   operation: answers[0],
+  //   abank: answers[0].abank
+  // }
 };
 
 ReactDOM.render(
