@@ -1,4 +1,5 @@
 import "./Quiz.css";
+import PropTypes from "prop-types";
 
 const Introduction = () => {
   return (
@@ -46,6 +47,17 @@ const Turn = ({ question, category, highlight, onAnswerSelected }) => {
       </div>
     </div>
   );
+};
+
+Turn.propTypes = {
+  question: PropTypes.shape({
+    name: PropTypes.string.isRequired,
+    imageUrl: PropTypes.string.isRequired,
+    category: PropTypes.arrayOf(PropTypes.string).isRequired
+  }),
+  category: PropTypes.arrayOf(PropTypes.string).isRequired,
+  onAnswerSelected: PropTypes.func.isRequired,
+  highlight: PropTypes.string.isRequired
 };
 
 const Continue = () => {
